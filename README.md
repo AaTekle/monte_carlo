@@ -18,10 +18,11 @@ $$
 
 
 2. **Simulation Process**:
-   - Compute daily returns: 
-   $$
-   R_t = \frac{P_{t+1} - P_t}{P_t}
-   $$
+**Compute daily returns**:
+$$
+R_t = \frac{P_{t+1} - P_t}{P_t}
+$$
+
    - **R**: Daily return at time **t**
    - **P**: Stock price at time **t**
    - **t**: Time step (e.g., day, month)

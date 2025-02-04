@@ -1,7 +1,4 @@
 ## Monte Carlo Simulation for Stock Price Prediction
-
-### **Introduction**
-
 I used Monte Carlo simulations to predict the future performance of the JPMorgan Chase & Co stock price, applying Monte Carlo simulations to JPMorgan Chase's stock price and evaluating the model's performance using statistical error metrics (MSE and MAE).
 
 By generating multiple random samples based on historical data, I modeled potential future price paths for JPMorgan Chase & Co's stock.

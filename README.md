@@ -5,11 +5,11 @@ By generating multiple random samples based on historical data, I modeled potent
 
 ---
 ### **Core Math - Monte Carlo Simulation**
-
 1. **Log-Normal Assumption**: Stock prices follow a geometric Brownian motion (discretized version):
-   $$
-   S_{t+1} = S_t \cdot e^{(\mu - 0.5 \sigma^2) + \sigma Z}
-   $$
+
+$$
+S_{t+1} = S_t \cdot e^{(\mu - 0.5 \sigma^2) + \sigma Z}
+$$
    - **S**: Stock price at time **t**
    - **μ**: Mean return of stock prices
    - **σ**: Standard deviation of returns

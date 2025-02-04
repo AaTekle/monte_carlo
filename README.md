@@ -17,8 +17,8 @@ $$
    - **t**: Time step (e.g., day, month)
 
 
-2. **Simulation Process**:
-**Compute daily returns**:
+2. **Compute daily returns**:
+
 $$
 R_t = \frac{P_{t+1} - P_t}{P_t}
 $$

@@ -1,4 +1,4 @@
-## Monte Carlo Simulation for Stock Price Prediction
+## Monte Carlo Simulation - JPMorgan Stock Price Prediction
 
 ### **Introduction**
 

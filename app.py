@@ -8,7 +8,7 @@ def fetch_stock_data(ticker, start_date, end_date):
     if not stock_data.empty:
         stock_data = stock_data['Adj Close']
         return stock_data
-    return pd.Series()  # Return an empty Series if data is not found
+    return pd.Series()  # Returning an empty Series if data is not found
 
 def evaluate_simulation(simulated_prices, actual_prices):
     """
@@ -78,29 +78,29 @@ def main():
         print("Insufficient data for Monte Carlo simulation. Need at least two price points.")
         return
     
-    # Split data into training and validation sets
+    # Splitting data into training and validation sets
     split_ratio = 0.8  # 80% for training, 20% for validation
     split_index = int(len(prices) * split_ratio)
     training_prices = prices.iloc[:split_index]
     validation_prices = prices.iloc[split_index:]
     
-    # Calculate the number of days to simulate (based on validation data length)
+    # Calculating the number of days to simulate (based on validation data length)
     num_days = len(validation_prices)
     
     print(f"Number of total price data points: {len(prices)}")
     print(f"Number of training data points: {len(training_prices)}")
     print(f"Number of validation data points: {len(validation_prices)}")
     
-    # Run Monte Carlo simulation
+    # Running the Monte Carlo simulation
     simulations = monte_carlo(training_prices, num_simulations, num_days)
     
-    # Extract the path for evaluation (e.g., the mean simulation path)
+    # Extracting the path for evaluation (e.g., the mean simulation path)
     mean_simulation = np.mean(simulations, axis=1)
     
-    # Evaluate simulation performance
+    # Evaluating simulation performance
     evaluate_simulation(mean_simulation, validation_prices.values)
     
-    # Plot the results
+    # Plotting the results
     plot_simulation(simulations, training_prices, validation_prices, ticker)
 
 if __name__ == "__main__":

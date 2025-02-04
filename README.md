@@ -1,15 +1,18 @@
 ## Monte Carlo Simulation for Stock Price Prediction
+
+### **Introduction**
+
 I used Monte Carlo simulations to predict the future performance of the JPMorgan Chase & Co stock price, applying Monte Carlo simulations to JPMorgan Chase's stock price and evaluating the model's performance using statistical error metrics (MSE and MAE).
 
 By generating multiple random samples based on historical data, I modeled potential future price paths for JPMorgan Chase & Co's stock.
 
 ---
 ### **Core Math - Monte Carlo Simulation**
-1. **Log-Normal Assumption**: Stock prices follow a geometric Brownian motion (discretized version):
 
-$$
-S_{t+1} = S_t \cdot e^{(\mu - 0.5 \sigma^2) + \sigma Z}
-$$
+1. **Log-Normal Assumption**: Stock prices follow a geometric Brownian motion (discretized version):
+   $$
+   S_{t+1} = S_t \cdot e^{(\mu - 0.5 \sigma^2) + \sigma Z}
+   $$
    - **S**: Stock price at time **t**
    - **μ**: Mean return of stock prices
    - **σ**: Standard deviation of returns
@@ -17,12 +20,11 @@ $$
    - **t**: Time step (e.g., day, month)
 
 
-2. **Compute daily returns**:
-
-$$
-R_t = \frac{P_{t+1} - P_t}{P_t}
-$$
-
+2. **Simulation Process**:
+   - Compute daily returns: 
+   $$
+   R_t = \frac{P_{t+1} - P_t}{P_t}
+   $$
    - **R**: Daily return at time **t**
    - **P**: Stock price at time **t**
    - **t**: Time step (e.g., day, month)

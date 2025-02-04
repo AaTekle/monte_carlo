@@ -7,31 +7,37 @@ I used Monte Carlo simulations to predict the future performance of the JPMorgan
 By generating multiple random samples based on historical data, I modeled potential future price paths for JPMorgan Chase & Co's stock.
 
 ---
+
 ### **Core Math - Monte Carlo Simulation**
 
 1. **Log-Normal Assumption**: Stock prices follow a geometric Brownian motion (discretized version):
-   $$
-   S_{t+1} = S_t \cdot e^{(\mu - 0.5 \sigma^2) + \sigma Z}
-   $$
-   - **S**: Stock price at time **t**
-   - **μ**: Mean return of stock prices
-   - **σ**: Standard deviation of returns
-   - **Z**: Random normal variable ($N(0, 1)$)
-   - **t**: Time step (e.g., day, month)
 
+$$
+S_{t+1} = S_t \cdot e^{(\mu - 0.5 \sigma^2) + \sigma Z}
+$$
+
+- **S**: Stock price at time **t**
+- **μ**: Mean return of stock prices
+- **σ**: Standard deviation of returns
+- **Z**: Random normal variable ($N(0, 1)$)
+- **t**: Time step (e.g., day, month)
 
 2. **Simulation Process**:
    - Compute daily returns: 
-   $$
-   R_t = \frac{P_{t+1} - P_t}{P_t}
-   $$
-   - **R**: Daily return at time **t**
-   - **P**: Stock price at time **t**
-   - **t**: Time step (e.g., day, month)
-   - Calculate **μ** (mean) and **σ** (standard deviation) from historical returns.
-   - For each day in the future, simulate a price based on the log-normal equation.
-   - Repeat the process for multiple simulations to create a distribution of potential price paths.
+
+$$
+R_t = \frac{P_{t+1} - P_t}{P_t}
+$$
+
+- **R**: Daily return at time **t**
+- **P**: Stock price at time **t**
+- **t**: Time step (e.g., day, month)
+- Calculate **μ** (mean) and **σ** (standard deviation) from historical returns.
+- For each day in the future, simulate a price based on the log-normal equation.
+- Repeat the process for multiple simulations to create a distribution of potential price paths.
+
 ---
+
 ### **Code**
 
 1. **Fetching Data**:
@@ -44,21 +50,25 @@ By generating multiple random samples based on historical data, I modeled potent
      - **Validation Data**: Used to evaluate simulation accuracy.
 
 3. **Monte Carlo Simulation**:
-- Simulate $N$ price paths for $D$ days using the formula described above.
-- Store all simulated paths in a matrix.
+   - Simulate $N$ price paths for $D$ days using the formula described above.
+   - Store all simulated paths in a matrix.
 
 4. **Evaluation Metrics**:
    - **Mean Absolute Error (MAE)**:
-   $$
-   MAE = \frac{1}{n} \sum |S_{simulated} - S_{actual}|
-   $$
+
+$$
+MAE = \frac{1}{n} \sum |S_{simulated} - S_{actual}|
+$$
+
    - **Root Mean Squared Error (RMSE)**:
-   $$
-   RMSE = \sqrt{\frac{1}{n} \sum (S_{simulated} - S_{actual})^2}
-   $$
+
+$$
+RMSE = \sqrt{\frac{1}{n} \sum (S_{simulated} - S_{actual})^2}
+$$
 
 5. **Visualization**:
    - Training and validation prices are plotted alongside simulated paths for visual comparison.
+
 ---
 
 ### **Results and Analysis**
